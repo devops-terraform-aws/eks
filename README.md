@@ -46,7 +46,7 @@ locals {
 
 # SSM and IAM Roles Anywhere supported - SSM is default
 module "eks_hybrid_node_role" {
-  source  = "git::https://github.com/devops-terraform-aws/vpc.git?ref=v1.0.0//modules/hybrid-node-role"
+  source  = "git::https://github.com/devops-terraform-aws/eks//modules/hybrid-node-role?ref=v1.0.0"
 
   tags = {
     Environment = "dev"
@@ -55,7 +55,7 @@ module "eks_hybrid_node_role" {
 }
 
 module "eks" {
-  source  = ""git::https://github.com/devops-terraform-aws/vpc.git?ref=v1.0.0""
+  source  = "git::https://github.com/devops-terraform-aws/eks.git?ref=v1.0.0"
 
   cluster_name    = "example"
   cluster_version = "1.31"
@@ -121,7 +121,7 @@ module "eks" {
 
 ```hcl
 module "eks" {
-  source  = "git::https://github.com/devops-terraform-aws/vpc.git?ref=v1.0.0"
+  source  = "git::https://github.com/devops-terraform-aws/eks.git?ref=v1.0.0"
 
   cluster_name    = "my-cluster"
   cluster_version = "1.31"
@@ -176,7 +176,7 @@ On clusters that were created prior to cluster access management (CAM) support, 
 
 ```hcl
 module "eks" {
-  source  = "git::https://github.com/devops-terraform-aws/vpc.git?ref=v1.0.0"
+  source  = "git::https://github.com/devops-terraform-aws/eks.git?ref=v1.0.0"
 
   # Truncated for brevity ...
 
@@ -224,7 +224,7 @@ In order to enable EFA support, you will have to specify `enable_efa_support = t
 
 ```hcl
 module "eks" {
-  source  = "git::https://github.com/devops-terraform-aws/vpc.git?ref=v1.0.0"
+  source  = "git::https://github.com/devops-terraform-aws/eks.git?ref=v1.0.0"
 
   # Truncated for brevity ...
 
